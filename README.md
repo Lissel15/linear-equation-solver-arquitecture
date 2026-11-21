@@ -13,11 +13,11 @@ clk ─> pc ─> rom ─> instr ─┬─> control_unit ──> reg_w, alu_c
 
 - `pc.vhd`: program counter, +4 per clock.
 - `rom.vhd`: instruction ROM holding 4 instructions (`1` to `4`), one per equation.
-- `register_file.vhd`: 32 x 32-bit registers, preloaded with the coefficients.
+- `reg_file.vhd`: 32 x 32-bit registers, preloaded with the coefficients.
 - `alu.vhd`: implements one operation (`ctrl = "0010"`): `x = -b / a`, returns 0 if `a = 0`.
 - `control_unit.vhd`: currently drives a constant `reg_w = 1` and `alu_c = "0010"`.
 - `cpu.vhd`: top level; maps each instruction to its register pair.
-- `testbench.vhd`: 20 ns clock, writes the ALU output at each rising edge to `salida.txt`.
+- `tb.vhd`: 20 ns clock, writes the ALU output at each rising edge to `salida.txt`.
 
 ## Equations and expected results
 
